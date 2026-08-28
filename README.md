@@ -69,6 +69,17 @@ to run:
 
 `python3 generate_qyoo_synthetic.py --count 5 --bg-dir ./backgrounds`
 
+Task 06 adds explicit rendering geometry profiles without changing the default:
+
+```sh
+python3 generate_qyoo_synthetic.py --count 5 --bg-dir ./backgrounds \
+  --geometry-profile historical_svg_204
+```
+
+Available recovery names are `legacy_python` (the byte-for-byte-compatible default),
+`historical_svg_204`, `c_like_512`, and `php_like_512`. Profile selection changes
+only carrier rendering geometry; the 36 cells remain row-major and MSB-first.
+
 This will generate 5 images in dataset/train
 
 You will need 50,000 images for training, and 5,000 for validation (I generated 5000 in the dataset/val folder).

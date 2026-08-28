@@ -22,6 +22,8 @@ import cv2
 import numpy as np
 from PIL import Image, ImageDraw
 
+from geometry_profiles import DEFAULT_GEOMETRY_PROFILE, GEOMETRY_PROFILES, get_geometry_profile
+
 # ------------------ Qyoo rendering helpers ------------------------ #
 DOT_GRID = 6
 DOT_R_PX = 12         # radius of each dot in the template
@@ -43,13 +45,18 @@ def normalize_polygon(pts, img_w, img_h, max_pts=32):
             for i, x in enumerate(pts.flatten())]
     return flat
 
-def render_qyoo(dot_bits=None):
+def render_qyoo(dot_bits=None, geometry_profile=DEFAULT_GEOMETRY_PROFILE):
     """
     Return an RGBA PIL image of a single Qyoo with one squared corner.
     dot_bits : 36‑char string of 0/1, row‑major.
+    geometry_profile : named rendering geometry; defaults to the exact pre-Task 06 behavior.
     """
     if dot_bits is None:
         dot_bits = ''.join(random.choice('01') for _ in range(DOT_GRID * DOT_GRID))
+    if len(dot_bits) != DOT_GRID * DOT_GRID or any(bit not in "01" for bit in dot_bits):
+        raise ValueError("dot_bits must contain exactly 36 binary cells")
+
+    profile = get_geometry_profile(geometry_profile)
 
     # decide light‑on‑dark or dark‑on‑light
     light = tuple(random.randint(200, 255) for _ in range(3))
@@ -61,25 +68,34 @@ def render_qyoo(dot_bits=None):
         fg, bg_col = light, dark    # light shape on dark bg
         dot_col = dark
 
-    img = Image.new("RGBA", (SHAPE_SIZE, SHAPE_SIZE), (0, 0, 0, 0))
+    working_size = profile.working_canvas_size
+    img = Image.new("RGBA", (working_size, working_size), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
 
-    r = SHAPE_SIZE // 2
     # circle
-    draw.ellipse((0, 0, 2 * r, 2 * r), fill=fg)
+    draw.ellipse((
+        profile.carrier_left,
+        profile.carrier_top,
+        profile.carrier_left + profile.carrier_diameter,
+        profile.carrier_top + profile.carrier_diameter,
+    ), fill=fg)
     # single square corner (bottom‑right)
-    draw.rectangle((r, r, SHAPE_SIZE, SHAPE_SIZE), fill=fg)
+    draw.rectangle((
+        profile.square_left, profile.square_top,
+        profile.square_right, profile.square_bottom,
+    ), fill=fg)
 
     # dots
-    cell = SHAPE_SIZE // (DOT_GRID + 2)
-    off = cell
     for row in range(DOT_GRID):
         for col in range(DOT_GRID):
             if dot_bits[row * DOT_GRID + col] == '1':
-                cx = off + col * cell + cell // 2
-                cy = off + row * cell + cell // 2
-                draw.ellipse((cx - DOT_R_PX, cy - DOT_R_PX,
-                              cx + DOT_R_PX, cy + DOT_R_PX), fill=dot_col)
+                cx = profile.dot_centers_x[col]
+                cy = profile.dot_centers_y[row]
+                draw.ellipse((cx - profile.dot_radius, cy - profile.dot_radius,
+                              cx + profile.dot_radius, cy + profile.dot_radius), fill=dot_col)
+
+    if profile.working_scale != 1:
+        img = img.resize((profile.canvas_size, profile.canvas_size), Image.Resampling.LANCZOS)
 
     # optional full inversion
     if random.random() < 0.5:
@@ -171,7 +187,7 @@ def main(args):
 
     for idx in range(args.count):
         # 1. render symbol
-        sym_img, bits = render_qyoo()
+        sym_img, bits = render_qyoo(geometry_profile=args.geometry_profile)
 
         # 2. augment
         canvas_size = args.imgsz
@@ -239,5 +255,8 @@ if __name__ == "__main__":
     parser.add_argument('--imgsz', type=int, default=640)
     parser.add_argument('--out', type=str, default='dataset')
     parser.add_argument('--bg-dir', type=str, default=None, help='folder of background images')
+    parser.add_argument('--geometry-profile', choices=sorted(GEOMETRY_PROFILES),
+                        default=DEFAULT_GEOMETRY_PROFILE,
+                        help='named carrier rendering geometry (default preserves historical Python output)')
     args = parser.parse_args()
     main(args)
