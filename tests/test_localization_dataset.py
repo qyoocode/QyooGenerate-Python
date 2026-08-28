@@ -18,7 +18,7 @@ BUILDER = ROOT / "src/build_localization_dataset.py"
 BACKGROUNDS = ROOT / "src/backgrounds"
 sys.path.insert(0, str(ROOT / "src"))
 
-from build_localization_dataset import generate_positive  # noqa: E402
+from build_localization_dataset import PAYLOAD_KINDS, generate_positive, unique_payload  # noqa: E402
 
 
 class LocalizationDatasetTests(unittest.TestCase):
@@ -88,6 +88,13 @@ class LocalizationDatasetTests(unittest.TestCase):
         )
         self.assertGreater(cv2.countNonZero(mask), 0)
         self.assertGreater(metadata["bounding_box_xyxy"][2], metadata["bounding_box_xyxy"][0])
+
+    def test_full_training_role_can_allocate_unique_payloads(self):
+        used = set()
+        for index in range(360):
+            kind = PAYLOAD_KINDS[index % len(PAYLOAD_KINDS)]
+            unique_payload(kind, __import__("random").Random(20260828 + index), index, used)
+        self.assertEqual(len(used), 360)
 
     def test_tiny_dataset_reproduces_exact_artifact_hashes(self):
         with tempfile.TemporaryDirectory(prefix="qyoo-task06-dataset-a-") as first_directory, \

@@ -59,17 +59,29 @@ def unique_payload(kind: str, rng: random.Random, index: int, used: set[str]) ->
             cleared = set(rng.sample(range(36), 36 - count))
             value = sum(1 << bit for bit in range(36) if bit not in cleared)
         elif kind == "single_set":
-            value = 1 << ((index + attempt) % 36)
-        elif kind == "single_cleared":
-            value = ((1 << 36) - 1) ^ (1 << ((index + attempt) % 36))
-        elif kind == "alternating_01":
-            value = int("01" * 18, 2) ^ (1 << ((index + attempt) % 36) if attempt else 0)
-        elif kind == "alternating_10":
-            value = int("10" * 18, 2) ^ (1 << ((index + attempt) % 36) if attempt else 0)
-        elif kind == "fixture":
-            value = int(FIXTURES[index % len(FIXTURES)], 2) ^ (
-                1 << ((index + attempt) % 36) if attempt else 0
+            value = (1 << ((index + attempt) % 36)) if attempt < 36 else sum(
+                1 << bit for bit in rng.sample(range(36), 2)
             )
+        elif kind == "single_cleared":
+            cleared = [((index + attempt) % 36)] if attempt < 36 else rng.sample(range(36), 2)
+            value = ((1 << 36) - 1) ^ sum(1 << bit for bit in cleared)
+        elif kind == "alternating_01":
+            changes = 0 if not attempt else (
+                1 << ((index + attempt) % 36) if attempt <= 36 else
+                sum(1 << bit for bit in rng.sample(range(36), 2))
+            )
+            value = int("01" * 18, 2) ^ changes
+        elif kind == "alternating_10":
+            changes = 0 if not attempt else (
+                1 << ((index + attempt) % 36) if attempt <= 36 else
+                sum(1 << bit for bit in rng.sample(range(36), 2))
+            )
+            value = int("10" * 18, 2) ^ changes
+        elif kind == "fixture":
+            changes = 0 if not attempt else (
+                1 << ((index + attempt) % 36) if attempt <= 36 else rng.getrandbits(36)
+            )
+            value = int(FIXTURES[index % len(FIXTURES)], 2) ^ changes
         else:
             value = rng.getrandbits(36)
         bits = f"{value:036b}"
