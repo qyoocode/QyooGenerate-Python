@@ -16,6 +16,9 @@ import cv2
 ROOT = Path(__file__).resolve().parents[1]
 BUILDER = ROOT / "src/build_localization_dataset.py"
 BACKGROUNDS = ROOT / "src/backgrounds"
+sys.path.insert(0, str(ROOT / "src"))
+
+from build_localization_dataset import generate_positive  # noqa: E402
 
 
 class LocalizationDatasetTests(unittest.TestCase):
@@ -77,6 +80,14 @@ class LocalizationDatasetTests(unittest.TestCase):
             )
             self.assertNotEqual(process.returncode, 0)
             self.assertEqual((root / "existing").read_text(), "authority")
+
+    def test_clipping_seed_retains_visible_carrier(self):
+        _, mask, metadata = generate_positive(
+            "train_family", 50, "php_like_512", 20260878,
+            sorted(BACKGROUNDS.glob("*.jpg"))[:5], set(),
+        )
+        self.assertGreater(cv2.countNonZero(mask), 0)
+        self.assertGreater(metadata["bounding_box_xyxy"][2], metadata["bounding_box_xyxy"][0])
 
     def test_tiny_dataset_reproduces_exact_artifact_hashes(self):
         with tempfile.TemporaryDirectory(prefix="qyoo-task06-dataset-a-") as first_directory, \

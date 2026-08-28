@@ -185,8 +185,9 @@ def convex_quad(rng: random.Random, scale: float, angle_degrees: float, severity
         quad = rotated + jitter
         radius = float(np.max(np.linalg.norm(quad, axis=1)))
         if clipped or radius >= CANVAS / 2 - 4:
-            center = np.array([rng.uniform(-0.06, 1.06) * CANVAS,
-                               rng.uniform(-0.06, 1.06) * CANVAS], dtype=np.float32)
+            # Permit frame-edge clipping while retaining a substantial visible region.
+            center = np.array([rng.uniform(-0.25 * radius, CANVAS + 0.25 * radius),
+                               rng.uniform(-0.25 * radius, CANVAS + 0.25 * radius)], dtype=np.float32)
         else:
             center = np.array([rng.uniform(radius + 4, CANVAS - radius - 4),
                                rng.uniform(radius + 4, CANVAS - radius - 4)], dtype=np.float32)
