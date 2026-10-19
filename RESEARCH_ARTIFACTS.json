@@ -1,0 +1,63 @@
+{
+  "status": "Forward source-only publication proposal; no filesystem removal or history rewrite",
+  "source_commit": "17d42e7390549a2271811d156e05aca4ac57521f",
+  "reason": "Checkpoints contain embedded machine-specific training metadata and unverified third-party model/data rights. Do not alter/unpickle opaque research artifacts to scrub them; preserve original objects for reproducibility and propose no checkpoint redistribution in the branch tip.",
+  "artifacts": [
+    {
+      "path": "runs/segment/train_full/weights/best.pt",
+      "git_blob": "4fcfba912138ea21ee96b3736918620f96ddcf06",
+      "sha256": "96b4443c575f669e5a334fb56b3b185ca5be8dc5cba1d8dc70ad16a0305610fc",
+      "bytes": 13372413,
+      "original_checkout_preserved": true
+    },
+    {
+      "path": "runs/segment/train_full/weights/epoch0.pt",
+      "git_blob": "4f5d157b848b6d533ba921971176c9f722faa394",
+      "sha256": "73a569e88d18d1cd338cf54bb3aaddf09c44e8fd10971a41496868f585736bc1",
+      "bytes": 13367805,
+      "original_checkout_preserved": true
+    },
+    {
+      "path": "runs/segment/train_full/weights/epoch10.pt",
+      "git_blob": "667e2cd841fb43def70c4d6294f5c729e719aaa7",
+      "sha256": "bca734a89d53d7cf251e43d152ddb2162ca3ed68bed4bc1902b50dc5a96c34e1",
+      "bytes": 13369469,
+      "original_checkout_preserved": true
+    },
+    {
+      "path": "runs/segment/train_full/weights/epoch15.pt",
+      "git_blob": "717d738cdf5f9376ba1737cb0c2962aabbe4c487",
+      "sha256": "7fc089b7d80928bcd0bfc96902781fa4703c1bf149c63d59080d956c8aa3e4ed",
+      "bytes": 13371133,
+      "original_checkout_preserved": true
+    },
+    {
+      "path": "runs/segment/train_full/weights/epoch20.pt",
+      "git_blob": "2e28dba5cabb6b4ed73707cc6f976bcb03c1d28d",
+      "sha256": "a3b0d9b01d90882ec951871898397ad5e655fcd3e390d75bc1de810206f360c1",
+      "bytes": 13372029,
+      "original_checkout_preserved": true
+    },
+    {
+      "path": "runs/segment/train_full/weights/epoch25.pt",
+      "git_blob": "cd2dc5ccb5f94529ce45f45c6a66207ab34823ca",
+      "sha256": "447c6c1f62987c0974f02a04a445cd4b276be4fb25ccc6fd367f7713c3215b1e",
+      "bytes": 13372989,
+      "original_checkout_preserved": true
+    },
+    {
+      "path": "runs/segment/train_full/weights/epoch5.pt",
+      "git_blob": "405b796dc6a2f62ac576201cfdde83de878ff405",
+      "sha256": "af31e4200cea7c9105d13b86b39d488227ea419c74d1aeae43e110af4693f1d7",
+      "bytes": 13368573,
+      "original_checkout_preserved": true
+    },
+    {
+      "path": "runs/segment/train_full/weights/last.pt",
+      "git_blob": "794f1261af46a67c35c6b202274935aabd9954eb",
+      "sha256": "6687050017b8bc22c2d6999f52aa233c987a584b52dd28a1f2f8f8d50257b73f",
+      "bytes": 13373309,
+      "original_checkout_preserved": true
+    }
+  ]
+}

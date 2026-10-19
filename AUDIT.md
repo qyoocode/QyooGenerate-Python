@@ -28,8 +28,10 @@ and the unfinished Core ML demonstration block a fully cleared publication.
 - MEDIUM — `src/generate_qyoo_synthetic.py` old labels include bbox fields before
   polygons and lack full reproducibility metadata. Preserved as historical utility;
   README directs segmentation work to `build_localization_dataset.py`.
-- MEDIUM — tracked Xcode user state and `.DS_Store` remain pending the asset cleanup
-  proposal. Added ignore rules; cleared machine-specific Xcode signing-team defaults.
+- MEDIUM — Xcode user state and `.DS_Store` were excluded from the proposed branch tip
+  using forward index-only changes in the continuation. Originals and historical
+  blobs remain hash-verified; no filesystem deletion. Added ignore rules and
+  cleared machine-specific Xcode signing-team defaults.
 - MEDIUM — no dependency pinning or CI existed. Added generation-only exact pins
   matching the available validation environment and a generation CI workflow.
   Training/export stack remains explicitly unpinned and unqualified. No expensive
@@ -84,3 +86,25 @@ NumPy2.5.3 and opencv-python-headless5.0.0.93 (no dependency installation):
 Outputs remain below 10 MiB in ignored `.codex-work/`. No project material was
 permanently deleted, quarantined or copied in bulk. Historical checkpoints were
 left in the original checkout and omitted from this sparse audit worktree.
+
+## Continuation: metadata publication hygiene
+
+Seven small developer-state entries (exact inventory in workspace evidence) were
+excluded from the proposed Git tip with `git update-index --force-remove` only.
+All original checkout files were verified byte-for-byte against their historical
+Git blobs before this reversible index change. No model, photograph, filesystem
+file or Git history was deleted. Public-tip scans must exclude developer absolute
+paths, signing-team defaults, .DS_Store and xcuserdata; historical metadata still
+requires the stated privacy/provenance distinctions. No generation logic changed,
+so the prior13-test generation result remains applicable; fresh static metadata
+checks cover this index/configuration change without retraining or repeated image
+suite execution.
+
+The continuation also found developer paths embedded in eight opaque `.pt`
+checkpoints. The source-only proposal excludes their Git-tree entries while
+preserving every original checkout file and historical Git blob byte-for-byte;
+RESEARCH_ARTIFACTS.json records exact retrieval identities. No checkpoint was
+unpickled, rewritten or deleted. Current proposed-tip raw-blob scans now cover
+binary artifacts as well as text, and find no developer absolute paths. Prior
+text-focused path findings were incomplete for checkpoint metadata; that scope
+is explicitly corrected here. Rights/history decisions remain open.

@@ -57,7 +57,8 @@ segmentation experiments. Do not use legacy labels as current training guidance.
 
 ## Optional historical ML experiment
 
-`runs/` contains historical checkpoints and metrics; `iOS/` contains an unfinished
+`runs/` retains historical metrics; machine-specific `.pt` checkpoints are excluded
+from the proposed source-only tree and pinned in [RESEARCH_ARTIFACTS.json](RESEARCH_ARTIFACTS.json); `iOS/` contains an unfinished
 Vision demonstration. Training/export versions and complete weight provenance were
 not recorded. There is no validated training/export environment lock and no claim
 that a new export reproduces the committed model. Review the Ultralytics software
