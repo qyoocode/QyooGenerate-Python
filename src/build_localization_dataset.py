@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the deterministic Task 06 Qyoo localization/segmentation dataset."""
+"""Build deterministic Qyoo localization/segmentation datasets."""
 
 from __future__ import annotations
 

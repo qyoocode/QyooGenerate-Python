@@ -102,4 +102,4 @@ auto_augment: randaugment
 erasing: 0.4
 cfg: null
 tracker: botsort.yaml
-save_dir: /Users/jeffrey/Documents/_dev/QyooGenerate-Python/runs/segment/train_full
+save_dir: runs/segment/train_full

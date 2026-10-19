@@ -1,0 +1,10 @@
+.codex-work/
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+**/xcuserdata/
+src/dataset/
+runs/
+*.pt
+*.mlpackage/

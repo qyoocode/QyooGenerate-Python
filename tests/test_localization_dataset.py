@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Focused reproducibility and split-safety tests for Task 06 dataset generation."""
+"""Reproducibility and split isolation for known-answer datasets."""
 
 from __future__ import annotations
 
 import json
 import subprocess
 import sys
+from contextlib import contextmanager
 import tempfile
 import unittest
 from pathlib import Path
@@ -15,7 +16,26 @@ import cv2
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILDER = ROOT / "src/build_localization_dataset.py"
-BACKGROUNDS = ROOT / "src/backgrounds"
+BACKGROUNDS = ROOT / ".codex-work" / "test-backgrounds"
+
+
+def setUpModule():
+    # Procedural inputs avoid depending on redistributed sample photographs.
+    import numpy as np
+    BACKGROUNDS.mkdir(parents=True, exist_ok=True)
+    rng = np.random.default_rng(20260828)
+    for index in range(8):
+        pixels = rng.integers(0, 256, (64, 64, 3), dtype=np.uint8)
+        if not cv2.imwrite(str(BACKGROUNDS / f"background-{index}.jpg"), pixels):
+            raise RuntimeError("could not write test background")
+
+
+@contextmanager
+def retained_directory(prefix):
+    scratch = ROOT / ".codex-work" / "dataset-tests"
+    scratch.mkdir(parents=True, exist_ok=True)
+    yield tempfile.mkdtemp(prefix=prefix, dir=scratch)
+
 sys.path.insert(0, str(ROOT / "src"))
 
 from build_localization_dataset import PAYLOAD_KINDS, generate_positive, unique_payload  # noqa: E402
@@ -34,7 +54,7 @@ class LocalizationDatasetTests(unittest.TestCase):
         return json.loads((output / "manifest.json").read_text())
 
     def test_tiny_dataset_is_complete_and_split_safe(self):
-        with tempfile.TemporaryDirectory(prefix="qyoo-task06-dataset-") as directory:
+        with retained_directory(prefix="qyoo-task06-dataset-") as directory:
             root = Path(directory)
             manifest = self.build(root)
             self.assertEqual(manifest["sample_count"], 20)
@@ -71,7 +91,7 @@ class LocalizationDatasetTests(unittest.TestCase):
                     self.assertEqual(label.read_text(), "")
 
     def test_refuses_to_overwrite(self):
-        with tempfile.TemporaryDirectory(prefix="qyoo-task06-dataset-") as directory:
+        with retained_directory(prefix="qyoo-task06-dataset-") as directory:
             root = Path(directory)
             (root / "existing").write_text("authority")
             process = subprocess.run(
@@ -97,8 +117,8 @@ class LocalizationDatasetTests(unittest.TestCase):
         self.assertEqual(len(used), 360)
 
     def test_tiny_dataset_reproduces_exact_artifact_hashes(self):
-        with tempfile.TemporaryDirectory(prefix="qyoo-task06-dataset-a-") as first_directory, \
-             tempfile.TemporaryDirectory(prefix="qyoo-task06-dataset-b-") as second_directory:
+        with retained_directory(prefix="qyoo-task06-dataset-a-") as first_directory, \
+             retained_directory(prefix="qyoo-task06-dataset-b-") as second_directory:
             first = self.build(Path(first_directory))
             second = self.build(Path(second_directory))
             first_hashes = [(sample["sample_id"], sample["image"]["sha256"],
