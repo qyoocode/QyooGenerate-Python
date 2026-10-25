@@ -1,5 +1,7 @@
 # QyooGenerate-Python
 
+Qyoo is maintained by **Pushplay LLC**. Historical copyright notices remain unchanged.
+
 Synthetic Qyoo rendering and reproducible localization datasets for detector research.
 Qyoo carries 36 data bits in a 6×6 grid, row-major with the most significant bit
 at the upper left in the normalized orientation. Values span `0` through
@@ -24,8 +26,8 @@ python3 -m venv .venv
 `src/build_localization_dataset.py` records seeds, payloads, geometry, transforms,
 artifact hashes and disjoint background-source roles in `manifest.json`. It refuses
 to overwrite a nonempty output. Supply at least eight photographs you have the
-right to use; the bundled photographs have unresolved provenance (see
-[ASSET_REVIEW.md](ASSET_REVIEW.md)). A small reproducibility check is:
+right to use. Photographs with unverified provenance are excluded from this
+source distribution (see [ASSET_REVIEW.md](ASSET_REVIEW.md)). A small reproducibility check is:
 
 ```sh
 .venv/bin/python src/build_localization_dataset.py \
@@ -57,13 +59,16 @@ segmentation experiments. Do not use legacy labels as current training guidance.
 
 ## Optional historical ML experiment
 
-`runs/` retains historical metrics; machine-specific `.pt` checkpoints are excluded
-from the proposed source-only tree and pinned in [RESEARCH_ARTIFACTS.json](RESEARCH_ARTIFACTS.json); `iOS/` contains an unfinished
-Vision demonstration. Training/export versions and complete weight provenance were
-not recorded. There is no validated training/export environment lock and no claim
-that a new export reproduces the committed model. Review the Ultralytics software
-and model licensing before reuse; the repository's BSD license does not relicense
-third-party weights or photographs.
+`runs/` retains historical numeric metrics and portable training configuration;
+photographs, derived training images, checkpoints and Core ML model packages with
+unverified rights are excluded from the current source tree. Their historical
+identities are recorded in [RESEARCH_ARTIFACTS.json](RESEARCH_ARTIFACTS.json).
+`iOS/` retains unfinished Vision demonstration source; it has no bundled model and
+is not a buildable or qualified scanner. Training/export versions and complete
+weight provenance were not recorded. There is no validated training/export
+environment lock or reproducible model claim. Review applicable Ultralytics
+software/model terms before independently obtaining a model; the BSD license
+does not relicense third-party weights or photographs.
 
 After separately choosing a licensed, pinned Ultralytics environment, the launcher
 runs **one** explicit training command and returns any failure:
@@ -83,6 +88,7 @@ unqualified.
 
 ## License
 
-Original software: [BSD-3-Clause](LICENSE). See [ASSET_REVIEW.md](ASSET_REVIEW.md)
-for unresolved model, photo and generated-asset rights and the proposed recoverable
-cleanup. Historical artifacts remain intact pending owner review.
+Qyoo-owned software: [BSD-3-Clause](LICENSE), with existing copyright notices
+preserved. See [ASSET_REVIEW.md](ASSET_REVIEW.md) for excluded photo/model/derived
+assets. Forward exclusions do not remove historical objects from existing Git
+history, clones or archives. No history rewrite was performed.
