@@ -1,7 +1,7 @@
 {
-  "status": "Forward source-only publication proposal; no filesystem removal or history rewrite",
+  "status": "Current source-only distribution; no filesystem removal or history rewrite",
   "source_commit": "17d42e7390549a2271811d156e05aca4ac57521f",
-  "reason": "Checkpoints contain embedded machine-specific training metadata and unverified third-party model/data rights. Do not alter/unpickle opaque research artifacts to scrub them; preserve original objects for reproducibility and propose no checkpoint redistribution in the branch tip.",
+  "reason": "Unverified photo/background/model/derivative rights and machine-specific checkpoint metadata are excluded from the current Git tree; original Git objects and original checkout files remain preserved.",
   "artifacts": [
     {
       "path": "runs/segment/train_full/weights/best.pt",
@@ -58,6 +58,385 @@
       "sha256": "6687050017b8bc22c2d6999f52aa233c987a584b52dd28a1f2f8f8d50257b73f",
       "bytes": 13373309,
       "original_checkout_preserved": true
+    }
+  ],
+  "additional_exclusion_source_commit": "ab4b2fea12db77d295b3ee5d4d4475b809a5878f",
+  "additional_excluded_assets": [
+    {
+      "path": "iOS/QyooDemo/SegOnly.mlpackage/Data/com.apple.CoreML/model.mlmodel",
+      "git_blob": "2691cac4ced81077cd9e44d43e3b5a54093f0c41",
+      "sha256": "20dbaa3583f709fff7d65790829ad80d184563da974b7265aee89d8d411234c4",
+      "bytes": 137402,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "iOS/QyooDemo/SegOnly.mlpackage/Data/com.apple.CoreML/weights/Manifest.json",
+      "git_blob": "8e739bd161bc75f83793cfae2d86295069eb881e",
+      "sha256": "9c38fad23b3146e66f2aadde86d018468bd17e6696fdf7ab315c4423ee5ead91",
+      "bytes": 617,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "iOS/QyooDemo/SegOnly.mlpackage/Manifest.json",
+      "git_blob": "eaf374d8ce6427e84f596e111b8230fc5ed99169",
+      "sha256": "515b8b8ba5e18e26d7120ed72b9da2ee9aea68e5796dd25dd99fbfdc2201e1a0",
+      "bytes": 617,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/train_full/labels.jpg",
+      "git_blob": "9e4ddae87f3b4f85df766f21188a0185abc36962",
+      "sha256": "0ec8c806388a0c27c59a565162939c53794ca8de75698cb8a0414a53ef658c17",
+      "bytes": 190681,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/train_full/labels_correlogram.jpg",
+      "git_blob": "ead1305755b3da157a122c896c1dcfc1b42e456d",
+      "sha256": "fea1a2653d045a8878f6280e66797cb86ab06182d4fded643b641d868fca7d92",
+      "bytes": 303334,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/train_full/train_batch0.jpg",
+      "git_blob": "bdcb88d8a86243070dae01eac4814cd7d7b454ff",
+      "sha256": "d73955ecf0934fe91b1154fc2367226df249457a4927d45291e74d7d8f324e30",
+      "bytes": 588402,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/train_full/train_batch1.jpg",
+      "git_blob": "f81cab16a2195230cd013fecda00615319837a59",
+      "sha256": "51ae265436d1564fc309fd75ea8c0b7671db02253ef8cbb3ae431d9393c46f19",
+      "bytes": 611462,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/train_full/train_batch2.jpg",
+      "git_blob": "6965ff20eda29d1188f595699e5d76125961723e",
+      "sha256": "ac129eea4de0a9816048801eafca881a7d8998d88903aa9a74d086da46f4ac1c",
+      "bytes": 614896,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/train_full/weights/best.mlpackage/Data/com.apple.CoreML/model.mlmodel",
+      "git_blob": "d2813b9e1530ade777e3803c88d2520d8d841e0e",
+      "sha256": "8d85a3f57bc421a0f9b97c82ec9a6fcb846b40e8faff1a11d38ef8ecef57810e",
+      "bytes": 137432,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/train_full/weights/best.mlpackage/Data/com.apple.CoreML/weights/weight.bin",
+      "git_blob": "c9c734a5622b4cd3648fae4e90a34c1c13abf92a",
+      "sha256": "efb2416f33c7587f2d981bad788a75f2d93bd38de68d06d1799f0af412c8a107",
+      "bytes": 6558720,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/train_full/weights/best.mlpackage/Manifest.json",
+      "git_blob": "8e739bd161bc75f83793cfae2d86295069eb881e",
+      "sha256": "9c38fad23b3146e66f2aadde86d018468bd17e6696fdf7ab315c4423ee5ead91",
+      "bytes": 617,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val/val_batch0_labels.jpg",
+      "git_blob": "58943ce89c276d8ac0d88079c5c39b4a033546b0",
+      "sha256": "13418fefd8031943ae22d27dea87314e2ac534e09c5eb913ec0256f14479baa1",
+      "bytes": 439086,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val/val_batch0_pred.jpg",
+      "git_blob": "9b4047012a85a625026e1a4ca73ebfa010c7b96f",
+      "sha256": "63e1497482794f5db0f07e9a4ecca25b5a79f1f03d59ddc20738888ca7724a1e",
+      "bytes": 439344,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val/val_batch1_labels.jpg",
+      "git_blob": "a0f4f52c881816276be4ef34ffafcefc7bb8e59d",
+      "sha256": "3c2e25e570a45eadeb18bf4c6fe594e45ef9ea5a9e992e0261afce71657c5e0a",
+      "bytes": 352732,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val/val_batch1_pred.jpg",
+      "git_blob": "88239a89c8d2da23465ad4ccf25a4d8c59fddbe8",
+      "sha256": "a655b72a1c9519ca43a1875d413ab7c31d26195722d7d4caaa15faab91807c37",
+      "bytes": 356563,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val/val_batch2_labels.jpg",
+      "git_blob": "ca755f764f7e833770d28d27f90f1c72ca73ff06",
+      "sha256": "2c47356e2ed98ade9a6c437ffdf8945d725f6b997f38e04e7d8804c5b6bc7448",
+      "bytes": 393916,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val/val_batch2_pred.jpg",
+      "git_blob": "1365de1a4bb6b1741ec330cd64cc7ef39e5c6380",
+      "sha256": "61183444a350a0f41800de68c9c0a217b44662be64e0c1e8ac95666074bb1f1e",
+      "bytes": 395309,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/BoxF1_curve.png",
+      "git_blob": "64056b3fe5763d566cc73f51594cddf3a38d174b",
+      "sha256": "5071cb898409f6037d4caa28a998f368176ecca5468fe41b7477c0053e6a812d",
+      "bytes": 90339,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/BoxPR_curve.png",
+      "git_blob": "93897b7361bf0f62643a2d63a09952bccec35f73",
+      "sha256": "01b7bcbdba6f93be5f11124472c0e1e3c9678b27e9823d990af21cf3c5b20b04",
+      "bytes": 73879,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/BoxP_curve.png",
+      "git_blob": "a54cdf36f870257c904f6f6a24849f57e346a5d7",
+      "sha256": "ae57c281dde60682dd8770dbb31c2687ade8b1af25bf1acdcdbdf4fffb93cd21",
+      "bytes": 78756,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/BoxR_curve.png",
+      "git_blob": "589e4b9c49b3396eba5f38d6100b6b178a698748",
+      "sha256": "81341f26eff875cd31bec3cd107884f81ae6d3f9ca24fce8eaca69c5d53ec00b",
+      "bytes": 93218,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/MaskF1_curve.png",
+      "git_blob": "88c011cd28c9f4dced10a11120b4a7ad80838b7a",
+      "sha256": "560515938c4ea2ffd3631a76f5693852336f38f91871cb1855b2c2acb3d5e4fd",
+      "bytes": 90911,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/MaskPR_curve.png",
+      "git_blob": "045fb3dd2928b0140d2ad506fde6d1a7fba26ad3",
+      "sha256": "0159fa5f101956b55b56116d60f1c2a8285b47e18f19cdc7fab0a48b95e2b4c8",
+      "bytes": 76795,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/MaskP_curve.png",
+      "git_blob": "caff2c8282034f9808e31ea7b70db213fc597f9c",
+      "sha256": "6bbe10f51877f5e8b8489eb64f9cb70235181203672b00c81f7e1cb106b5c5b1",
+      "bytes": 78796,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/MaskR_curve.png",
+      "git_blob": "84686bd871ae7526c90fdb543468484b014ec242",
+      "sha256": "f8b0913e420a0228386b7325648a5807cc53fd3f578b1a824a01dfcfef4123d5",
+      "bytes": 92370,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/confusion_matrix.png",
+      "git_blob": "d48c1e085cd13d87e385e526872ddd6146a44e97",
+      "sha256": "d67395a5e58b064366628ce6c83ef0b554d5b5fb21df4bbe37781b58764f3a2c",
+      "bytes": 82125,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/confusion_matrix_normalized.png",
+      "git_blob": "841818ed15eb4c1fcc80856e67a27a337d125dbe",
+      "sha256": "3d26c315ac8888e98f06ebe8008dbad806dea4187d3d471fab43c1103cf01b8f",
+      "bytes": 83784,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/val_batch0_labels.jpg",
+      "git_blob": "58943ce89c276d8ac0d88079c5c39b4a033546b0",
+      "sha256": "13418fefd8031943ae22d27dea87314e2ac534e09c5eb913ec0256f14479baa1",
+      "bytes": 439086,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/val_batch0_pred.jpg",
+      "git_blob": "9b4047012a85a625026e1a4ca73ebfa010c7b96f",
+      "sha256": "63e1497482794f5db0f07e9a4ecca25b5a79f1f03d59ddc20738888ca7724a1e",
+      "bytes": 439344,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/val_batch1_labels.jpg",
+      "git_blob": "a0f4f52c881816276be4ef34ffafcefc7bb8e59d",
+      "sha256": "3c2e25e570a45eadeb18bf4c6fe594e45ef9ea5a9e992e0261afce71657c5e0a",
+      "bytes": 352732,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/val_batch1_pred.jpg",
+      "git_blob": "88239a89c8d2da23465ad4ccf25a4d8c59fddbe8",
+      "sha256": "a655b72a1c9519ca43a1875d413ab7c31d26195722d7d4caaa15faab91807c37",
+      "bytes": 356563,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/val_batch2_labels.jpg",
+      "git_blob": "ca755f764f7e833770d28d27f90f1c72ca73ff06",
+      "sha256": "2c47356e2ed98ade9a6c437ffdf8945d725f6b997f38e04e7d8804c5b6bc7448",
+      "bytes": 393916,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "runs/segment/val2/val_batch2_pred.jpg",
+      "git_blob": "1365de1a4bb6b1741ec330cd64cc7ef39e5c6380",
+      "sha256": "61183444a350a0f41800de68c9c0a217b44662be64e0c1e8ac95666074bb1f1e",
+      "bytes": 395309,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "samples/000004.jpg",
+      "git_blob": "e56e2bf0b07769882eeb934078a42a4bd7c6153f",
+      "sha256": "c2167ecc875761cf41a908a3c77b3424eb50b234ec3e9f0fb517111939f64a0f",
+      "bytes": 261613,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "samples/000004_vis.jpg",
+      "git_blob": "8a48600af19866201ceec72fc38d384191793454",
+      "sha256": "eb2453e0217d7d91a3ace83bfd79c33216479a5a440320177cf7f7c52e42441a",
+      "bytes": 263058,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "samples/1.jpg",
+      "git_blob": "894e48dfe0864f6b77898425ed2455c332bc5edf",
+      "sha256": "43f10ddb13f36eb40aecb2359a6a0c5acca0295d93e064fcd18bf779530d215f",
+      "bytes": 63811,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "samples/2.jpg",
+      "git_blob": "d511a96da52038fde2209cdbb65a2fbc33fac203",
+      "sha256": "1bc7009221d1b5b00a5a3a8e1cec27e232b62bd2b2668e217fa43091e09eed37",
+      "bytes": 15971,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "samples/3.jpg",
+      "git_blob": "4ad860132e8e2c32b08250e041084d93103b252e",
+      "sha256": "b2a74d13c60bb16163a2a4c6e35b019bb732c17f513d27b814d645954d215697",
+      "bytes": 43224,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "samples/4.jpg",
+      "git_blob": "e1191ee1f77280a92af6017bb434eefba7e8df72",
+      "sha256": "af8e1b294477eb2a59b46d70274d7371142d5710280caabfb979285a066bd901",
+      "bytes": 48963,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "src/backgrounds/pexels-photo-129731.jpg",
+      "git_blob": "123a490d9a33c4a1a44b896244133cfcf505279d",
+      "sha256": "3d099679d47d515d760e3721e36d59767bd42a3e31031a10776520d24b8d249a",
+      "bytes": 303056,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "src/backgrounds/pexels-photo-235986.jpg",
+      "git_blob": "6950f447c7e0e755555f2120c4b7296913c968cc",
+      "sha256": "c3a58a98b7ad88becd9730520c0307010532143d28a8adfcc4e8545f77daaa1b",
+      "bytes": 583663,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "src/backgrounds/pexels-photo-255379.jpg",
+      "git_blob": "016456f131bc92620d7bc04fe1a6087fe5c2998c",
+      "sha256": "27b4835c6083a42fa8b8df43e1a2137e0e6ff10ba7f211050f5f7edae5ba8589",
+      "bytes": 79441,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "src/backgrounds/pexels-photo-413195.jpg",
+      "git_blob": "c9c4cf8e518884db56bc02e5723b2d214d2785eb",
+      "sha256": "a83f8f9d0fd535acdd32471e69ddb778a1de5cd121eb454a1fc110e22428ef40",
+      "bytes": 389234,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "src/backgrounds/pexels-photo-459277.jpg",
+      "git_blob": "9af85309f55ff7c85a97b8ef85b92e6affee6b0a",
+      "sha256": "8bceb70e04ced5c2c57ddccd64e0737640144e313a40a37e6576d0b43b54f0c8",
+      "bytes": 532518,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "src/backgrounds/pexels-photo-531880.jpg",
+      "git_blob": "77a09e1c5a9cdfe35a9da2ce73964c89e56ed812",
+      "sha256": "ab0799a55458a1ee8a121b46a3121a7b61c419442c5fbb59d4c904709147736c",
+      "bytes": 92652,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "src/backgrounds/pexels-photo-952670.jpg",
+      "git_blob": "5cb9b52224650c43c6cddaecf21acf98eb309982",
+      "sha256": "f82d802b99035e174868371b0aecefe6e23eeda9bbb8c5746bfe6f30385c5cb7",
+      "bytes": 238941,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
+    },
+    {
+      "path": "src/backgrounds/pexels-photo-960137.jpg",
+      "git_blob": "8bc4c3d08fda0a0778362e75c808b62603e738ca",
+      "sha256": "18f036df2766a9ae0b95a104c3dd67c42450716892c56892695a2d899cc0a0cc",
+      "bytes": 163769,
+      "original_checkout_preserved": true,
+      "reason": "Unverified photograph/background/model or derived image; omitted from current distribution"
     }
   ]
 }

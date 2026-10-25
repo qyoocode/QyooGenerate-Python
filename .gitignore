@@ -8,3 +8,8 @@ src/dataset/
 runs/
 *.pt
 *.mlpackage/
+
+# Unverified historical assets are not part of the current source distribution.
+samples/
+src/backgrounds/
+*.mlmodel

@@ -2,8 +2,10 @@
 
 Inspected public main `17d42e7390549a2271811d156e05aca4ac57521f`.
 Classification: research/reference rendering and localization data tools.
-Verdict: research documentation and generation tests prepared; asset/model rights
-and the unfinished Core ML demonstration block a fully cleared publication.
+Verdict: source-only research/reference distribution prepared. Unverified
+photos/models/derivative images are excluded from the current tree; the
+unfinished optional Core ML demonstration does not block source publication.
+Qyoo is maintained by Pushplay LLC; historical copyright notices are preserved.
 
 ## Findings and changes
 
@@ -108,3 +110,24 @@ unpickled, rewritten or deleted. Current proposed-tip raw-blob scans now cover
 binary artifacts as well as text, and find no developer absolute paths. Prior
 text-focused path findings were incomplete for checkpoint metadata; that scope
 is explicitly corrected here. Rights/history decisions remain open.
+
+## Source-only distribution completion — 2026-10-24
+
+Applied the owner’s public-distribution decision: excluded samples/backgrounds,
+all historical training/validation image outputs and Core ML packages from the
+current index. Previously excluded checkpoints remain excluded. Original checkout
+bytes were hash-verified against Git blobs before the index-only changes; no file
+was deleted and no history changed. Numeric metrics/configuration and source are
+retained. The updated asset manifest records all additional exact exclusions.
+Official Pexels/Ultralytics license pages were checked; exact asset provenance
+remains unverified, so no third-party rights are presumed or relicensed.
+The prior rights-review language above is historical audit context; current
+publication scope is [ASSET_REVIEW.md](ASSET_REVIEW.md).
+
+Focused completion checks: the existing Python environment ran
+`PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -v`: **13 passed**.
+Index/manifest verification confirms all55 excluded artifact paths absent from the
+current index, all original bytes matching recorded hashes and historical objects
+retained; CSV/configuration remains tracked. `git diff --check` passed. No install,
+training, export or iOS build ran. Test scratch grew about2.9MiB (5.8→8.7MiB) and
+remains ignored for reproducibility; no cleanup or disk-space recovery is claimed.
