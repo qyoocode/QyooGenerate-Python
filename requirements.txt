@@ -1,0 +1,4 @@
+# Generation/tests only; no PyTorch, Ultralytics or Core ML runtime required.
+numpy==2.5.3
+Pillow==12.3.0
+opencv-python-headless==5.0.0.93

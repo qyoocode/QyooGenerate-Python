@@ -1,6 +1,7 @@
-path: /Users/jeffrey/Documents/_dev/QyooGenerate-Python/src/dataset  # <-- full path
+# Example only. Use the absolute dataset YAML emitted by build_localization_dataset.py.
+# Ultralytics resolves relative dataset roots using its configured datasets directory.
+path: dataset
 train: train/images
-val:   val/images
-
+val: val/images
 names:
   0: qyoo

@@ -1,0 +1,15 @@
+.codex-work/
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+**/xcuserdata/
+src/dataset/
+runs/
+*.pt
+*.mlpackage/
+
+# Unverified historical assets are not part of the current source distribution.
+samples/
+src/backgrounds/
+*.mlmodel

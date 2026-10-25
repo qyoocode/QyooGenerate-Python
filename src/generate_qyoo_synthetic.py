@@ -49,7 +49,7 @@ def render_qyoo(dot_bits=None, geometry_profile=DEFAULT_GEOMETRY_PROFILE):
     """
     Return an RGBA PIL image of a single Qyoo with one squared corner.
     dot_bits : 36‑char string of 0/1, row‑major.
-    geometry_profile : named rendering geometry; defaults to the exact pre-Task 06 behavior.
+    geometry_profile : named rendering geometry; defaults to the historical default behavior.
     """
     if dot_bits is None:
         dot_bits = ''.join(random.choice('01') for _ in range(DOT_GRID * DOT_GRID))
@@ -137,7 +137,7 @@ def augment_symbol(sym_rgba, canvas_size=640):
                       [random.uniform(w * (1 - margin), w), random.uniform(h * (1 - margin), h)],
                       [random.uniform(0, w * margin),      random.uniform(h * (1 - margin), h)]])
 
-    # ⛑️ Reject bad transforms
+    # Reject non-finite transforms
     if not np.isfinite(dst).all():
         return None, None
 
@@ -229,7 +229,7 @@ def main(args):
 
         # subsample to ≤32 points for YOLO-Seg
         if cnt.shape[0] > 32:
-            keep = np.linspace(0, cnt.shape[0] - 1, 32, dtype=int)  # use another name
+            keep = np.linspace(0, cnt.shape[0] - 1, 32, dtype=int)
             cnt  = cnt[keep]
 
 
